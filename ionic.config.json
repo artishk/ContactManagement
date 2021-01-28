@@ -1,0 +1,7 @@
+{
+  "name": "contactsMgmt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
