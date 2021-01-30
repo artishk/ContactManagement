@@ -1,17 +1,34 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-
-import Home from '../views/Home.vue'
-
+import ContactsList from '../views/ContactsList.vue';
+import ShowContactCard from '../views/ShowContact.card.vue';
+import AddContact from '../views/AddContact.vue';
+import EditContact from '../views/EditContact.vue';
 const routes = [
+  // {
+  //   path: '/',
+  //   redirect: '/ContactsList'
+  // },
   {
-    path: '/',
-    redirect: '/home'
+    path:'/ContactsList',
+    component:ContactsList,
+    name:"ContactsList"
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path:'/ShowContactCard/:id',
+    component:ShowContactCard,
+    name:"ShowContact.card"
+  },
+  {
+    path:'/AddContact',
+    component:AddContact,
+    name:"AddContact"
+  },
+  {
+    path:'/EditContact/:id',
+    component:EditContact,
+    name:"EditContact"
   }
+ 
 ]
 
 const router = createRouter({

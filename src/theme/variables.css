@@ -3,6 +3,12 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+  --ion-color-favorite:#e8e8e8;
+  --ion-color-favorite-rgb:232, 232, 232;
+  --ion-color-favorite-contrast: #f38181;
+  --ion-color-favorite-contrast-rgb: 243, 129, 129;
+  --ion-color-favorite-shade:#ffc7c7;
+  --ion-color-favorite-tint:#ffe2e2;
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -52,7 +58,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-danger-tint: #ed576b;
 
   /** dark **/
-  --ion-color-dark: #222428;
+  --ion-color-dark: #070707;
   --ion-color-dark-rgb: 34, 36, 40;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
@@ -74,6 +80,9 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -179,7 +188,7 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-step-900: #e6e6e6;
     --ion-color-step-950: #f2f2f2;
 
-    --ion-toolbar-background: #0d0d0d;
+   
 
     --ion-item-background: #000000;
 
@@ -193,7 +202,7 @@ http://ionicframework.com/docs/theming/ */
    */
 
   .md body {
-    --ion-background-color: #121212;
+    --ion-background-color: black;
     --ion-background-color-rgb: 18,18,18;
 
     --ion-text-color: #ffffff;
