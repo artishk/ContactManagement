@@ -31,7 +31,9 @@ export default {
       })
         .then(response => {
           console.log(response);
-          this.$router.push({ name: "ContactsList" });
+         let r = this.$router.resolve({ name: "ContactsList" })
+          window.location.assign(r.href)
+         
         })
         .catch(function(error) {
           console.log(error);

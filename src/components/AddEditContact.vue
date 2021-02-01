@@ -1,20 +1,27 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar color="warning">
-         <add-edit-contact-buttons @on-save="$emit('on-save', form)"
-        @go-back ="goBack" />
-
+      <ion-toolbar color="favorite">
+        <ion-buttons slot="start">
+          <ion-button shape="round" @click.prevent ="goBack">
+            <ion-icon :icon="arrowBackOutline" ></ion-icon> 
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button shape="round" @click.prevent="$emit('on-save',form)">
+            <ion-icon :icon="checkmarkOutline"></ion-icon> 
+            </ion-button>
+        </ion-buttons>
+      
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      
       <ion-avatar>
         <img
           src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg"
         />
       </ion-avatar>
-     
+
       <ion-item>
         <ion-input v-model="form.name" placeholder="Enter Name"> </ion-input>
       </ion-item>
@@ -29,7 +36,9 @@
           <ion-select-option value="work">Work</ion-select-option>
         </ion-select>
         <ion-input v-model="email.value" placeholder="Enter UserID"></ion-input>
-        <ion-button shape="round" color="light" @click="addEmail()">+</ion-button>
+        <ion-button shape="round" color="light" @click="addEmail()"
+          >+</ion-button
+        >
       </ion-item>
 
       <ion-item v-for="(mobile, $pindex) in form.mobile" :key="$pindex">
@@ -41,7 +50,9 @@
           v-model="mobile.value"
           placeholder="Enter number"
         ></ion-input>
-        <ion-button shape="round" color="light" @click="addMobile">+</ion-button>
+        <ion-button shape="round" color="light" @click="addMobile"
+          >+</ion-button
+        >
       </ion-item>
     </ion-content>
   </ion-page>
@@ -54,12 +65,14 @@ import {
   IonContent,
   IonInput,
   IonItem,
+   IonIcon,
   IonAvatar,
   IonSelect,
   IonSelectOption,
-  IonButton
+  IonButton,IonButtons
 } from "@ionic/vue";
-import AddEditContactButtons from "./AddEditContact.buttons.vue";
+import {checkmarkOutline,arrowBackOutline} from "ionicons/icons";
+// import AddEditContactButtons from "./AddEditContact.buttons.vue";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 export default {
@@ -75,7 +88,9 @@ export default {
     IonSelect,
     IonSelectOption,
     IonButton,
-    AddEditContactButtons
+    IonIcon,
+    IonButtons,
+ 
   },
 
   data() {
@@ -96,13 +111,16 @@ export default {
             value: ""
           }
         ]
-      }
+      },
+      checkmarkOutline,
+      arrowBackOutline
     };
   },
   methods: {
-    goBack(){
-    this.$router.push({
-      name:"ContactsList"})
+    goBack() {
+      this.$router.push({
+        name: "ContactsList"
+      });
     },
     addMobile() {
       this.form.mobile.push({
@@ -120,7 +138,7 @@ export default {
   mounted() {
     if (this.$route.params.id) {
       const userId = this.$route.params.id;
-      
+
       axios
         .get("http://localhost:9190/getContactsByID/" + userId)
         .then(res => {

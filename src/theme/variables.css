@@ -3,12 +3,12 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
-  --ion-color-favorite:#e8e8e8;
-  --ion-color-favorite-rgb:232, 232, 232;
-  --ion-color-favorite-contrast: #f38181;
-  --ion-color-favorite-contrast-rgb: 243, 129, 129;
-  --ion-color-favorite-shade:#ffc7c7;
-  --ion-color-favorite-tint:#ffe2e2;
+  --ion-color-favorite:#393e46;
+  --ion-color-favorite-rgb:57, 62, 70;
+  --ion-color-favorite-contrast: #eeeeee;
+  --ion-color-favorite-contrast-rgb: 238, 238, 238;
+  --ion-color-favorite-shade:#393e46;
+  --ion-color-favorite-tint:#00adb5;
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;

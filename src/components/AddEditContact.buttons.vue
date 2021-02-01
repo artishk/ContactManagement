@@ -1,5 +1,6 @@
 <template>
   <ion-page>
+    
     <ion-fab horizontal="end" vertical="top" slot="fixed">
       <ion-fab-button color="warning" @click="$emit('on-save')">
         <ion-icon :icon="checkmarkOutline"></ion-icon>

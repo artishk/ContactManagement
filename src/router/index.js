@@ -4,10 +4,10 @@ import ShowContactCard from '../views/ShowContact.card.vue';
 import AddContact from '../views/AddContact.vue';
 import EditContact from '../views/EditContact.vue';
 const routes = [
-  // {
-  //   path: '/',
-  //   redirect: '/ContactsList'
-  // },
+  {
+    path: '/',
+    redirect: '/ContactsList'
+  },
   {
     path:'/ContactsList',
     component:ContactsList,
