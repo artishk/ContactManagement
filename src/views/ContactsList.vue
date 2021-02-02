@@ -9,19 +9,11 @@
     </ion-header>
     <ion-toolbar>
       <ion-searchbar
-<<<<<<< HEAD
-        v-model="names"
-        placeholder="Search by Name"
-        inputmode="text"
-        enterkeyhint="search"
-        @ionInput="searchName"
-=======
       v-model="searchString"
       clear-icon="close-sharp"
       placeholder="Search by Name"
       inputmode="text"
       enterkeyhint= "search"
->>>>>>> e67b8ddf4c1c9973d972d353de776d25aaac56bc
       ></ion-searchbar>
     </ion-toolbar>
     <ion-content>
@@ -66,30 +58,14 @@ export default {
     IonIcon,
     IonSearchbar
   },
-  computed: {
-    searchName() {
-      console.log(this.names);
-      if(this.names !==""){
-         return this.contacts.filter(contact =>
-        contact.name.toLowerCase().includes(this.names)
-      );
-      }else{
-        return this.contacts
-      }
-     
-    }
-  },
+
 
   data() {
       
     return {
     contacts: [],
       add,
-<<<<<<< HEAD
-      names: ""
-=======
       searchString:""
->>>>>>> e67b8ddf4c1c9973d972d353de776d25aaac56bc
     };
   },
   methods: {
@@ -106,8 +82,6 @@ export default {
           id: id
         }
       });
-<<<<<<< HEAD
-=======
     },
   },
   computed: {
@@ -117,7 +91,6 @@ export default {
      } else {
         return  this.contacts;
      }
->>>>>>> e67b8ddf4c1c9973d972d353de776d25aaac56bc
     }
   },
 
