@@ -9,12 +9,11 @@
     </ion-header>
     <ion-toolbar>
       <ion-searchbar
-      v-model="names"
+      v-model="searchString"
       clear-icon="close-sharp"
       placeholder="Search by Name"
       inputmode="text"
       enterkeyhint= "search"
-      @ionInput ="searchName"
       ></ion-searchbar>
      
     </ion-toolbar>
@@ -25,7 +24,7 @@
         </ion-fab-button>
       </ion-fab>
 
-      <contact-list-item :contacts="contacts" @show-contact="showContact" />
+      <contact-list-item :contacts="filterdContacts" @show-contact="showContact" />
     </ion-content>
   </ion-page>
 </template>
@@ -65,8 +64,7 @@ export default {
     return {
       contacts: [],
       add,
-      names:""
-     
+      searchString:""
     };
   },
   methods: {
@@ -84,10 +82,14 @@ export default {
         }
       });
     },
-    searchName() {
-    console.log(this.names);
-      console.log(this.contacts.filter(contact => contact.name.toLowerCase().includes(this.names)));
-     
+  },
+  computed: {
+    filterdContacts() {
+     if (this.searchString) {
+        return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchString));
+     } else {
+        return  this.contacts;
+     }
     }
   },
 
