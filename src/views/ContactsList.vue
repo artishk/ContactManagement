@@ -9,11 +9,19 @@
     </ion-header>
     <ion-toolbar>
       <ion-searchbar
+<<<<<<< HEAD
         v-model="names"
         placeholder="Search by Name"
         inputmode="text"
         enterkeyhint="search"
         @ionInput="searchName"
+=======
+      v-model="searchString"
+      clear-icon="close-sharp"
+      placeholder="Search by Name"
+      inputmode="text"
+      enterkeyhint= "search"
+>>>>>>> e67b8ddf4c1c9973d972d353de776d25aaac56bc
       ></ion-searchbar>
     </ion-toolbar>
     <ion-content>
@@ -23,7 +31,7 @@
         </ion-fab-button>
       </ion-fab>
 
-      <contact-list-item :contacts="contacts" @show-contact="showContact" />
+      <contact-list-item :contacts="filterdContacts" @show-contact="showContact" />
     </ion-content>
   </ion-page>
 </template>
@@ -77,7 +85,11 @@ export default {
     return {
     contacts: [],
       add,
+<<<<<<< HEAD
       names: ""
+=======
+      searchString:""
+>>>>>>> e67b8ddf4c1c9973d972d353de776d25aaac56bc
     };
   },
   methods: {
@@ -94,6 +106,18 @@ export default {
           id: id
         }
       });
+<<<<<<< HEAD
+=======
+    },
+  },
+  computed: {
+    filterdContacts() {
+     if (this.searchString) {
+        return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchString));
+     } else {
+        return  this.contacts;
+     }
+>>>>>>> e67b8ddf4c1c9973d972d353de776d25aaac56bc
     }
   },
 
