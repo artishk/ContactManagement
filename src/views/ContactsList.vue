@@ -9,14 +9,12 @@
     </ion-header>
     <ion-toolbar>
       <ion-searchbar
-      v-model="names"
-      clear-icon="close-sharp"
-      placeholder="Search by Name"
-      inputmode="text"
-      enterkeyhint= "search"
-      @ionInput ="searchName"
+        v-model="names"
+        placeholder="Search by Name"
+        inputmode="text"
+        enterkeyhint="search"
+        @ionInput="searchName"
       ></ion-searchbar>
-     
     </ion-toolbar>
     <ion-content>
       <ion-fab vertical="top" horizontal="end" slot="fixed">
@@ -35,7 +33,6 @@ import {
   IonPage,
   IonHeader,
   IonToolbar,
-
   IonTitle,
   IonContent,
   IonFab,
@@ -61,12 +58,26 @@ export default {
     IonIcon,
     IonSearchbar
   },
-  data() {
-    return {
-      contacts: [],
-      add,
-      names:""
+  computed: {
+    searchName() {
+      console.log(this.names);
+      if(this.names !==""){
+         return this.contacts.filter(contact =>
+        contact.name.toLowerCase().includes(this.names)
+      );
+      }else{
+        return this.contacts
+      }
      
+    }
+  },
+
+  data() {
+      
+    return {
+    contacts: [],
+      add,
+      names: ""
     };
   },
   methods: {
@@ -83,16 +94,10 @@ export default {
           id: id
         }
       });
-    },
-    searchName() {
-    console.log(this.names);
-      console.log(this.contacts.filter(contact => contact.name.toLowerCase().includes(this.names)));
-     
     }
   },
 
   mounted() {
-   
     axios
       .get("http://localhost:9190/getAllContacts")
       .then(res => {
